@@ -14,13 +14,15 @@
 // Variables
 // ------------------------------
 // @font: 14px/1.5 tahoma, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-@font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+@font: 14px "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+
+@default-line-height: 1.5;
 
 @font-color: #666;
 
 @link-color: #36f;
 
-@link-outline: none;
+@link-outline: hidden;
 
 @link-text-decoration: underline;
 
@@ -151,5 +153,6 @@ input,
 select,
 textarea {
   font: @font;
+  line-height: @default-line-height;
   color: @font-color;
 }
