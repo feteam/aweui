@@ -1,0 +1,129 @@
+/**
+ * aweui common
+ * @author hiwangchi@gmail.com
+ */
+
+@import "variables.less";
+@import "mixin.less";
+
+ /* -------------------------------------------------- *\
+  | 单位使用rem
+ \* -------------------------------------------------- */
+ html, body {
+   .pxToRem(16px);
+   font-size: @pxToRem !important;
+ }
+
+/* -------------------------------------------------- *\
+ | flex box 布局
+\* -------------------------------------------------- */
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-1 {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.flex-2 {
+  -webkit-flex: 2;
+  flex: 2;
+}
+
+.flex-3 {
+  -webkit-flex: 3;
+  flex: 3;
+}
+
+
+/* -------------------------------------------------- *\
+ | aweui
+\* -------------------------------------------------- */
+
+.awe-page {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.awe-header {
+  position: absolute;
+  z-index: 1002;
+  left: 0;
+  top: 0;
+  width: 100%;
+  .height(46px);
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  .title {
+    .lineHeight(46px);
+    .paddingLR(46px, 46px);
+    .fontSize(18px);
+  }
+
+  .btn-back {
+    position: absolute;
+    .width(46px);
+    .height(46px);
+    .lineHeight(46px);
+    text-align: center;
+    .fontSize(28px);
+  }
+}
+
+.awe-container {
+  position: absolute;
+  z-index: 1001;
+  .top(46px);
+  left: 0;
+  .bottom(46px);
+  width: 100%;
+}
+
+.awe-container-no-footer {
+  bottom: 0;
+}
+
+.awe-scorll {
+  position: absolute;
+  z-index: 1001px;
+  width: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+.awe-footer {
+  position: absolute;
+  z-index: 1002;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  .height(46px);
+  .lineHeight(46px);
+  .btn-ok {
+    display: block;
+    text-align: center;
+    background: @color-danger;
+    color: #fff;
+  }
+}
