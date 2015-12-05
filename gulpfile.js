@@ -11,6 +11,7 @@
 
   var paths = {
     root: './',
+    src: 'src/',
     less: 'less/',
     css: 'css/',
     js: 'js/',
@@ -32,6 +33,13 @@
       }))
       .pipe(gulp.dest(paths.css + 'page/'))
       .pipe(connect.reload());
+
+    gulp.src(paths.src + 'less/*.less')
+      .pipe(less({
+        plugins: [cleanCSS]
+      }))
+      .pipe(gulp.dest(paths.src + 'css/'))
+      .pipe(connect.reload());
   });
 
   gulp.task('connect', function () {
@@ -45,17 +53,23 @@
   gulp.task('html', function () {
     gulp.src(paths.tpl + '**/*.html')
       .pipe(connect.reload());
+
+    gulp.src(paths.src + 'html/**/*.html')
+      .pipe(connect.reload());
   });
 
   gulp.task('js', function () {
     gulp.src(paths.js + '**/*.js')
       .pipe(connect.reload());
+
+    gulp.src(paths.src + 'js/*.js')
+      .pipe(connect.reload());
   });
 
   gulp.task('watch', function () {
-    gulp.watch([paths.tpl + '**/*.html'], ['html']);
-    gulp.watch([paths.less + '**/*.less'], ['less']);
-    gulp.watch([paths.js + '**/*.js'], ['js']);
+    gulp.watch([paths.tpl + '**/*.html', paths.src + 'html/**/*.html'], ['html']);
+    gulp.watch([paths.less + '**/*.less', paths.src + 'less/*.less'], ['less']);
+    gulp.watch([paths.js + '**/*.js', paths.src + 'js/*.js'], ['js']);
   });
 
   gulp.task('default', ['connect', 'watch']);
