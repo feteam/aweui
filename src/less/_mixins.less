@@ -1,0 +1,30 @@
+/**
+ * aweui -- mixins
+ * @author hiwangchi@gmail.com
+ */
+
+.retina-line (@color: #c4c4c4){
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: @color;
+  -webkit-transform: scaleY(0.5);
+  tranform: scaleY(0.5);
+}
+
+.retina-line-top (@color: #c4c4c4) {
+  top: 0;
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  .retina-line(@color);
+}
+
+.retina-line-bottom (@color: #c4c4c4) {
+  bottom: 0;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  .retina-line(@color);
+}
