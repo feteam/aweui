@@ -89,7 +89,7 @@
       .pipe(connect.reload());
   });
 
-  gulp.task('watch', function () {
+  gulp.task('watch', ['less'], function () {
     gulp.watch([paths.html + '**/*.html'], ['html']);
     gulp.watch([paths.less + '**/*.less'], ['less']);
     gulp.watch([paths.js + '**/*.js'], ['js']);
