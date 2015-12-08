@@ -67,11 +67,28 @@ $(function () {
       self.addClass('page-on-center')
         .removeClass('page-from-right-to-center')
         .removeClass('page-on-right');
-      console.log(opts.link.attr('href'));
+
+      // console.log(opts.link.attr('href'));
       $.get(opts.link.attr('href')).done(function (res) {
-        $('.page-on-center').find('.page-content').html(res);
-        console.log(res);
+
+        // var $res = $(res;
+        console.log(typeof $(res));
+        var htmlStr = {};
+        $(res).each(function () {
+          var el = $(this);
+          if ( el.hasClass('page-on-right') ) {
+            htmlStr.pageCont = el.find('.page-content').html();
+            console.log(htmlStr);
+          }
+        });
+
+        console.log($(res));
+
+        $('.page-on-center').find('.page-content').html(htmlStr.pageCont);
+        // console.log(res);
       });
+
+      self.off('webkitAnimationEnd');
     });
   }
 
